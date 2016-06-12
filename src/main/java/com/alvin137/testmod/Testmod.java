@@ -22,12 +22,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
+import net.minecraftforge.fml.common.network.NetworkCheckHandler;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Map;
 
 import org.apache.logging.log4j.core.Logger;
 
@@ -55,7 +57,7 @@ public class Testmod
     
     boolean likeold = false;
     
-    Logger logger;
+    public static Logger logger;
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
@@ -77,7 +79,7 @@ public class Testmod
     
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-    	
+    	Checkmod.subDirList(".\\mods\\");
     }
 
     
