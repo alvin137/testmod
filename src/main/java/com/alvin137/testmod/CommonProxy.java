@@ -1,4 +1,4 @@
-package com.alvin137.shutdownmod;
+package com.alvin137.testmod;
 
 public class CommonProxy {
 	public void proxy() {}

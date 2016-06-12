@@ -1,4 +1,4 @@
-package com.alvin137.shutdownmod;
+package com.alvin137.testmod;
 
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -28,28 +29,33 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.io.IOException;
 import java.util.Date;
 
+import org.apache.logging.log4j.core.Logger;
+
 import ibxm.Player;
 
-@Mod(modid = ShutdownMod.MODID, version = ShutdownMod.VERSION, name = ShutdownMod.NAME)
-public class ShutdownMod
+@Mod(modid = Testmod.MODID, version = Testmod.VERSION, name = Testmod.NAME)
+public class Testmod
 {
-	@Instance
-	public static ShutdownMod instance;
+	public static final String MODID = "testmod";
+    public static final String VERSION = "1.0";
+    public static final String NAME = "Testmod";
+
+	@Instance(MODID)
+	public static Testmod instance;
 	
-	//@SidedProxy(clientSide="com.alvin137.shutdownmod.ClientProxy", serverSide="com.alvin137.shutdownmod.CommonProxy")
-	//public static CommonProxy proxy;
+	@SidedProxy(clientSide="com.alvin137.testmod.ClientProxy", serverSide="com.alvin137.testmod.CommonProxy")
+	public static CommonProxy proxy;
 	
 	int age;
 	Date date = new Date();
 	
-    public static final String MODID = "shutdownmod";
-    public static final String VERSION = "1.0";
-    public static final String NAME = "Shut Down YOU";
-    
+        
     int hour = date.getHours();
     int min = date.getMinutes();
     
     boolean likeold = false;
+    
+    Logger logger;
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
@@ -58,13 +64,20 @@ public class ShutdownMod
     	age = config.getInt("Your age", config.CATEGORY_GENERAL, 10, 1, 99, "Enter Your Age");
     	likeold = config.getBoolean("Legacy Type Shutdown", config.CATEGORY_GENERAL, false, null);
     	config.save();
-    	FMLCommonHandler.instance().bus().register(new ShutdownMod());
+    	FMLCommonHandler.instance().bus().register(new Testmod());
     }
-    @SideOnly(Side.CLIENT)
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	if(hour <= 05 && min <= 59 && age < 16 && likeold == true)
-    		killTask();
+    	if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
+    		logger.debug("Killing Time!");
+    		proxy.proxy();
+    	}
+    }
+    
+    @EventHandler
+    public void postinit(FMLPostInitializationEvent event) {
+    	
     }
 
     
@@ -73,16 +86,11 @@ public class ShutdownMod
     	if(hour <= 05 && min <= 59 && age < 16 && likeold == false)
     		killPlayer(event.player);
     	else if(hour <= 05 && min <= 59 && age < 16 && likeold == true)
-    		killTask();
+    		proxy.proxy();
     }
     
-    @SideOnly(Side.CLIENT)
-    public void killTask() {
-    	Runtime runtime = Runtime.getRuntime();
-    	runtime.exit(0);
-    }
     
-    @SideOnly(Side.CLIENT)
+    
     public void killPlayer(EntityPlayer player) {
     	PotionEffect potioneffect1 = new PotionEffect(Potion.getPotionById(4), 1, 3, false, true);
     	PotionEffect potioneffect2 = new PotionEffect(Potion.getPotionById(9), 1, 3, false, true);
