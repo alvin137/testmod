@@ -14,6 +14,6 @@
 - [x] JEI API 설치??
 
 ##Version Info
-MCVersion : 1.9.4
-Forge Current : 12.17.0.1961
-JEI Current : 1.9.4_3.6.3.212
+ - MCVersion : 1.9
+ - Forge Current : 12.17.0.1961
+ - JEI Current : 1.9.4_3.6.3.212
