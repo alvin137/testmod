@@ -8,5 +8,5 @@ TODO LIST
 - [ ] GUI 하고싶다 GUI...
 - [x] 포지 최신으로 유지
 - [ ] RF-API 연동
-- [ ] JEI
+- [x] JEI API 설치?? -jei_1.9.4:3.6.3.212
 
