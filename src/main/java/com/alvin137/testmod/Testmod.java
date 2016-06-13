@@ -33,6 +33,9 @@ import java.util.Map;
 
 import org.apache.logging.log4j.core.Logger;
 
+import com.alvin137.testmod.items.RegisterItems;
+import com.alvin137.testmod.proxy.CommonProxy;
+
 import ibxm.Player;
 
 @Mod(modid = Testmod.MODID, version = Testmod.VERSION, name = Testmod.NAME)
@@ -45,36 +48,19 @@ public class Testmod
 	@Instance(MODID)
 	public static Testmod instance;
 	
-	@SidedProxy(clientSide="com.alvin137.testmod.ClientProxy", serverSide="com.alvin137.testmod.CommonProxy")
+	@SidedProxy(clientSide="com.alvin137.testmod.proxy.ClientProxy", serverSide="com.alvin137.testmod.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	
-	int age;
-	Date date = new Date();
-	
-        
-    int hour = date.getHours();
-    int min = date.getMinutes();
-    
-    boolean likeold = false;
     
     public static Logger logger;
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-    	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-    	config.load();
-    	age = config.getInt("Your age", config.CATEGORY_GENERAL, 10, 1, 99, "Enter Your Age");
-    	likeold = config.getBoolean("Legacy Type Shutdown", config.CATEGORY_GENERAL, false, null);
-    	config.save();
-    	FMLCommonHandler.instance().bus().register(new Testmod());
+    	proxy.preinit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
-    		logger.debug("Killing Time!");
-    		proxy.proxy();
-    	}
+    	proxy.init(event);
     }
     
     @EventHandler
@@ -85,15 +71,12 @@ public class Testmod
     
     @SubscribeEvent
     public void onTickPass(TickEvent.PlayerTickEvent event){
-    	if(hour <= 05 && min <= 59 && age < 16 && likeold == false)
-    		killPlayer(event.player);
-    	else if(hour <= 05 && min <= 59 && age < 16 && likeold == true)
-    		proxy.proxy();
+    		proxy.ontickpass(event);
     }
     
     
     
-    public void killPlayer(EntityPlayer player) {
+    public static void killPlayer(EntityPlayer player) {
     	PotionEffect potioneffect1 = new PotionEffect(Potion.getPotionById(4), 1, 3, false, true);
     	PotionEffect potioneffect2 = new PotionEffect(Potion.getPotionById(9), 1, 3, false, true);
     	PotionEffect potioneffect3 = new PotionEffect(Potion.getPotionById(15), 1, 3, false, true);
