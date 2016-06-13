@@ -2,8 +2,10 @@ package com.alvin137.testmod;
 
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.ITextComponent;
@@ -52,6 +54,14 @@ public class Testmod
 	public static CommonProxy proxy;
     
     public static Logger logger;
+    
+    public static CreativeTabs tabtestmod = new CreativeTabs("Testmod") {
+        @Override
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem() {
+            return RegisterItems.bat;
+        }
+    };
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
