@@ -1,5 +1,7 @@
 package com.alvin137.testmod.items;
 
+import com.alvin137.testmod.Testmod;
+
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -20,7 +22,7 @@ public class GenericItems extends Item {
 	public GenericItems(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.COMBAT);
+        setCreativeTab(Testmod.tabtestmod);
         GameRegistry.register(this);
     }
 	 @SideOnly(Side.CLIENT)

@@ -29,15 +29,16 @@ public class ClientProxy extends CommonProxy {
     	config.save();
     	OBJLoader.INSTANCE.addDomain(Testmod.MODID);
     	RegisterItems.initClient();
+    	System.out.println("YAP??NOP??");
     	FMLCommonHandler.instance().bus().register(new Testmod());
     }
     @Override
 	public void init(FMLInitializationEvent e) {
     	super.init(e);
-		if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
-		Runtime runtime = Runtime.getRuntime();
-    	runtime.exit(0);
-		}
+		//if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
+		//Runtime runtime = Runtime.getRuntime();
+    	//runtime.exit(0);
+		//}
 	}
 	@Override
 	public void ontickpass(TickEvent.PlayerTickEvent e) {

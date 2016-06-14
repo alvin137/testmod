@@ -59,7 +59,7 @@ public class Testmod
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
-            return RegisterItems.bat;
+            return RegisterItems.testitem;
         }
     };
     
