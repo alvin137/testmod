@@ -12,6 +12,8 @@
 - [x] 포지 최신으로 유지 
 - [ ] RF-API 연동
 - [x] JEI API 설치??
+- [x] ITEM 구현 (RFTools 참조)
+- [ ] Block 구현
 
 ##Version Info
  - MCVersion : 1.9
