@@ -1,44 +1,32 @@
 package com.alvin137.testmod;
 
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.client.multiplayer.PlayerControllerMP;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.client.FMLConfigGuiFactory;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.event.FMLEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
-import net.minecraftforge.fml.common.network.NetworkCheckHandler;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.Map;
-
-import org.apache.logging.log4j.core.Logger;
+import org.apache.logging.log4j.Logger;
 
 import com.alvin137.testmod.items.RegisterItems;
+import com.alvin137.testmod.modchecker.ModChecker;
+import com.alvin137.testmod.modchecker.ModListCheckerExample;
 import com.alvin137.testmod.proxy.CommonProxy;
-
-import ibxm.Player;
 
 @Mod(modid = Testmod.MODID, version = Testmod.VERSION, name = Testmod.NAME)
 public class Testmod
@@ -53,8 +41,8 @@ public class Testmod
 	@SidedProxy(clientSide="com.alvin137.testmod.proxy.ClientProxy", serverSide="com.alvin137.testmod.proxy.CommonProxy")
 	public static CommonProxy proxy;
     
-    public static Logger logger;
-    
+
+        public static Logger logger;
     public static CreativeTabs tabtestmod = new CreativeTabs("Testmod") {
         @Override
         @SideOnly(Side.CLIENT)
@@ -65,7 +53,9 @@ public class Testmod
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+    	logger = event.getModLog();
     	proxy.preinit(event);
+    	ModChecker.check();
     }
 
     @EventHandler
@@ -75,13 +65,18 @@ public class Testmod
     
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-    	Checkmod.subDirList(".\\mods\\");
+
     }
 
     
     @SubscribeEvent
     public void onTickPass(TickEvent.PlayerTickEvent event){
     		proxy.ontickpass(event);
+    }
+    
+    @SubscribeEvent
+    public void onServerConnection(ClientConnectedToServerEvent event) {
+    	proxy.onServerConnection(event);
     }
     
     

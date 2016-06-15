@@ -5,12 +5,16 @@ import java.util.Date;
 import com.alvin137.testmod.Testmod;
 import com.alvin137.testmod.items.RegisterItems;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 
 public class ClientProxy extends CommonProxy {
 	int age;
@@ -30,7 +34,7 @@ public class ClientProxy extends CommonProxy {
     	OBJLoader.INSTANCE.addDomain(Testmod.MODID);
     	RegisterItems.initClient();
     	System.out.println("YAP??NOP??");
-    	FMLCommonHandler.instance().bus().register(new Testmod());
+    	MinecraftForge.EVENT_BUS.register(new Testmod());
     }
     @Override
 	public void init(FMLInitializationEvent e) {
@@ -49,5 +53,16 @@ public class ClientProxy extends CommonProxy {
     		Runtime runtime = Runtime.getRuntime();
     		runtime.exit(0);
     	}
+	}
+	@Override
+	public void onServerConnection(ClientConnectedToServerEvent e) {
+		super.onServerConnection(e);
+		String serverip = "";
+    	Minecraft mc = FMLClientHandler.instance().getClient();
+    	if (!mc.isSingleplayer()) 
+    		serverip = mc.getCurrentServerData().serverIP;
+    	else
+    		serverip = "localhost";
+    	System.out.println("Connected to" + serverip);
 	}
 }

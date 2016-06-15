@@ -22,7 +22,9 @@ build
 
 # other
 eclipse
-run
 *.txt
+run
+!run/eula.txt
+!eula.txt
 *.bat
 gradlew

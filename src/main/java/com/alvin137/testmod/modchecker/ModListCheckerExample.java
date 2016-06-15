@@ -1,4 +1,4 @@
-package com.alvin137.testmod;
+package com.alvin137.testmod.modchecker;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 
-public class Checkmod {
+public class ModListCheckerExample {
 	public static void subDirList(String source){
 		File dir = new File(source); 
 		File[] fileList = dir.listFiles(); 
@@ -15,11 +15,11 @@ public class Checkmod {
 			for(int i = 0 ; i < fileList.length ; i++){
 				File file = fileList[i]; 
 				if(file.isFile()){
-    // ÆÄÀÏÀÌ ÀÖ´Ù¸é ÆÄÀÏ ÀÌ¸§ Ãâ·Â
-					System.out.println("\t ÆÄÀÏ ÀÌ¸§ = " + file.getName());
+    // íŒŒì¼ì´ ìžˆë‹¤ë©´ íŒŒì¼ ì´ë¦„ ì¶œë ¥
+					System.out.println("\t íŒŒì¼ ì´ë¦„ = " + file.getName());
 				}else if(file.isDirectory()){
-					System.out.println("µð·ºÅä¸® ÀÌ¸§ = " + file.getName());
-    // ¼­ºêµð·ºÅä¸®°¡ Á¸ÀçÇÏ¸é Àç±ÍÀû ¹æ¹ýÀ¸·Î ´Ù½Ã Å½»ö
+					System.out.println("ë””ë ‰í† ë¦¬ ì´ë¦„ = " + file.getName());
+    // ì„œë¸Œë””ë ‰í† ë¦¬ê°€ ì¡´ìž¬í•˜ë©´ ìž¬ê·€ì  ë°©ë²•ìœ¼ë¡œ ë‹¤ì‹œ íƒìƒ‰
 					subDirList(file.getCanonicalPath().toString()); 
 				}
 			}
