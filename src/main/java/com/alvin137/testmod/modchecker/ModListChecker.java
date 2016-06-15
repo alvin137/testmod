@@ -9,7 +9,6 @@ import java.io.Writer;
 import java.util.List;
 
 import com.alvin137.testmod.Testmod;
-import com.sun.istack.internal.logging.Logger;
 
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
