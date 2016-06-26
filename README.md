@@ -1,6 +1,9 @@
 # testmod
 기능 테스트용 모드
-1.9.4의 기능과 암을 만끽해보자! 프로젝트
+
+~~1.9.4의 기능과 암을 만끽해보자! 프로젝트~~
+
+*1.10*의 기능과 암을 만끽해보자! 프로젝트
 
 
 
@@ -17,6 +20,6 @@
 - [ ] Block 구현
 
 ##Version Info
- - MCVersion : 1.9
- - Forge Current : 12.17.0.1961
- - JEI Current : 1.9.4_3.6.3.212
+ - MCVersion : 1.10
+ - Forge Current : 12.18.0.1996
+ - JEI Current : 1.10_3.7.0.218
