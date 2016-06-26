@@ -9,3 +9,5 @@ cache:
     - '$HOME/.gradle'
 before_cache:
 - rm -f $HOME/.gradle/caches/*/*.lock
+before_script: "gradlew setupDecompWorkspace eclipse"
+script: "gradlew build"
