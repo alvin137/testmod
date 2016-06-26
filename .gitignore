@@ -24,5 +24,3 @@ eclipse
 run
 !run/eula.txt
 !eula.txt
-*.bat
-gradlew
