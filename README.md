@@ -7,8 +7,6 @@
 
 *1.10.2*의 기능과 암을 만끽해보자! 프로젝트 
 
-
-
 ##TODO LIST
 - [x] 특정 시각 넘었을 때 포션 효과
 - [x] 클라이언트 모드 목록 뽑기 - tmp.txt
@@ -23,5 +21,5 @@
 
 ##Version Info
  - MCVersion : 1.10.2
- - Forge Current : 12.18.0.2008
+ - Forge Current : 12.18.0.2010
  - JEI Current : 1.10.2-3.7.4.224

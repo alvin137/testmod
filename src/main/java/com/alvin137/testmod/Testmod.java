@@ -42,7 +42,7 @@ public class Testmod
 	public static CommonProxy proxy;
     
 
-        public static Logger logger;
+    public static Logger logger;
     public static CreativeTabs tabtestmod = new CreativeTabs("Testmod") {
         @Override
         @SideOnly(Side.CLIENT)

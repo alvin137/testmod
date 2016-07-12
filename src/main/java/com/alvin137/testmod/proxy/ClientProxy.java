@@ -3,6 +3,7 @@ package com.alvin137.testmod.proxy;
 import java.util.Date;
 
 import com.alvin137.testmod.Testmod;
+import com.alvin137.testmod.blocks.RegisterBlocks;
 import com.alvin137.testmod.items.RegisterItems;
 
 import net.minecraft.client.Minecraft;
@@ -33,6 +34,7 @@ public class ClientProxy extends CommonProxy {
     	config.save();
     	OBJLoader.INSTANCE.addDomain(Testmod.MODID);
     	RegisterItems.initClient();
+    	RegisterBlocks.initClient();
     	System.out.println("YAP??NOP??");
     	MinecraftForge.EVENT_BUS.register(new Testmod());
     }
