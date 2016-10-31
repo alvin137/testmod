@@ -17,9 +17,10 @@
 - [ ] RF-API 연동
 - [x] JEI API 설치??
 - [x] ITEM 구현 (RFTools 참조)
-- [ ] Block 구현
+- [x] Block 구현
+- [ ] FACE를 가진 Block 구현
 
 ##Version Info
  - MCVersion : 1.10.2
- - Forge Current : 12.18.0.2010
- - JEI Current : 1.10.2-3.7.4.224
+ - Forge Current : 1.10.2-12.18.2.2116
+ - JEI Current : 1.10.2_3.13.0.338
