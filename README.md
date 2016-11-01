@@ -14,7 +14,7 @@
 - [ ] 서버와 클라이언트 통신
 - [ ] GUI 하고싶다 GUI...
 - [x] 포지 최신으로 유지 
-- [ ] RF-API 연동
+- [x] RF-API 연동 - Bat.java
 - [x] JEI API 설치??
 - [x] ITEM 구현 (RFTools 참조)
 - [x] Block 구현

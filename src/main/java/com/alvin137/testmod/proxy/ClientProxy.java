@@ -1,5 +1,6 @@
 package com.alvin137.testmod.proxy;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.alvin137.testmod.Testmod;
@@ -20,32 +21,33 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToSe
 public class ClientProxy extends CommonProxy {
 	int age;
 	boolean likeold = false;
-	Date date = new Date();
-    int hour = date.getHours();
-    int min = date.getMinutes();
+	Calendar cal = Calendar.getInstance();
+	int hour = cal.get(Calendar.HOUR_OF_DAY);
+    int min = cal.get(cal.MINUTE);
     
     @Override
     public void preinit(FMLPreInitializationEvent e) {
     	super.preinit(e);
-    	Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+    	/*Configuration config = new Configuration(e.getSuggestedConfigurationFile());
     	config.load();
     	age = config.getInt("Your age", config.CATEGORY_GENERAL, 10, 1, 99, "Enter Your Age");
     	likeold = config.getBoolean("Legacy Type Shutdown", config.CATEGORY_GENERAL, false, null);
-    	config.save();
+    	config.save();*/
     	OBJLoader.INSTANCE.addDomain(Testmod.MODID);
     	RegisterItems.initClient();
     	RegisterBlocks.initClient();
-    	System.out.println("YAP??NOP??");
     	MinecraftForge.EVENT_BUS.register(new Testmod());
+    	Testmod.logger.info("Good Morning there! It's " + hour + ":" + min);
     }
     @Override
 	public void init(FMLInitializationEvent e) {
     	super.init(e);
-		//if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
-		//Runtime runtime = Runtime.getRuntime();
-    	//runtime.exit(0);
-		//}
+		/*if(hour <= 05 && min <= 59 && age < 16 && likeold == false){
+		Runtime runtime = Runtime.getRuntime();
+    	runtime.exit(0);
+		}*/
 	}
+	/*
 	@Override
 	public void ontickpass(TickEvent.PlayerTickEvent e) {
 		super.ontickpass(e);
@@ -55,7 +57,7 @@ public class ClientProxy extends CommonProxy {
     		Runtime runtime = Runtime.getRuntime();
     		runtime.exit(0);
     	}
-	}
+	}*/
 	@Override
 	public void onServerConnection(ClientConnectedToServerEvent e) {
 		super.onServerConnection(e);
