@@ -2,7 +2,6 @@ package com.alvin137.testmod.items;
 
 import com.alvin137.testmod.Testmod;
 
-import jdk.nashorn.internal.runtime.events.RecompilationEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -22,13 +21,13 @@ public class Bat extends TestmodRFItems {
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if(!worldIn.isRemote) {
+	 public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos, EnumFacing hand, float facing, float hitX, float hitY) {
+		if(!playerIn.isRemote) {
 		//	receiveEnergy(stack, maxReceive, false);
-			extractEnergy(stack, maxExtract, false);
-			Testmod.logger.info(getEnergyStored(stack));
-			receiveEnergy(stack, maxReceive, false);
-			Testmod.logger.info(getEnergyStored(stack));
+			extractEnergy(stack.getHeldItemMainhand(), maxExtract, false);
+			Testmod.logger.info(getEnergyStored(stack.getHeldItemMainhand()));
+			receiveEnergy(stack.getHeldItemMainhand(), maxReceive, false);
+			Testmod.logger.info(getEnergyStored(stack.getHeldItemMainhand()));
 		}
 		
 		

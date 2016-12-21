@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -46,8 +47,8 @@ public class Testmod
     public static CreativeTabs tabtestmod = new CreativeTabs("Testmod") {
         @Override
         @SideOnly(Side.CLIENT)
-        public Item getTabIconItem() {
-            return RegisterItems.testitem;
+        public ItemStack getTabIconItem() {
+            return new ItemStack(RegisterItems.testitem);
         }
     };
     

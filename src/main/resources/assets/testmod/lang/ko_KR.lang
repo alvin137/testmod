@@ -1,4 +1,6 @@
-item.testitem.name=테스트 아이템!!!!
+tile.asdf.name=테스트 블럭
 
+item.testitem.name=테스트 아이템
+item.bat.name=배터리
 
-itemGroup.Testmod=이 모드의 탭입니다! 탭! 갤럭-시 탭! 깔깔ㅁㄴㅇㄻㄴㅇㄹ
+itemGroup.Testmod=탭

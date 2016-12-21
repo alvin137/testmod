@@ -17,10 +17,10 @@ public class TestItem extends GenericItems {
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos, EnumFacing hand, float facing, float hitX, float hitY)
     {
-		if(!worldIn.isRemote) {
-		Block blockIn = worldIn.getBlockState(pos).getBlock();
+		if(!playerIn.isRemote) {
+		Block blockIn = playerIn.getBlockState(worldIn).getBlock();
 		System.out.println("BlockName : " + blockIn.getUnlocalizedName());
 		System.out.println("ModName : " + blockIn.getRegistryName().getResourceDomain());
 		}
