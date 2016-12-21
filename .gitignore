@@ -19,7 +19,4 @@ build
 
 # other
 eclipse
-*.txt
 run
-!run/eula.txt
-!eula.txt
