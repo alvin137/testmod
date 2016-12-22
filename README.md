@@ -1,4 +1,4 @@
-testmod[![Build Status](https://travis-ci.org/alvin137/testmod.svg?branch=master)](https://travis-ci.org/alvin137/testmod)
+#testmod[![Build Status](https://travis-ci.org/alvin137/testmod.svg?branch=master)](https://travis-ci.org/alvin137/testmod)
 기능 테스트용 모드
 
 ~~1.9.4의 기능과 암을 만끽해보자! 프로젝트~~
