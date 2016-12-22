@@ -1,11 +1,13 @@
-# testmod[![Build Status](https://travis-ci.org/alvin137/testmod.svg?branch=master)](https://travis-ci.org/alvin137/testmod)
+testmod[![Build Status](https://travis-ci.org/alvin137/testmod.svg?branch=master)](https://travis-ci.org/alvin137/testmod)
 기능 테스트용 모드
 
 ~~1.9.4의 기능과 암을 만끽해보자! 프로젝트~~
 
 ~~*1.10*의 기능과 암을 만끽해보자! 프로젝트~~
 
-*1.10.2*의 기능과 암을 만끽해보자! 프로젝트 
+~~*1.10.2*의 기능과 암을 만끽해보자! 프로젝트~~
+
+*1.11*의 기능과 암을 만끽해보자! 프로젝트
 
 ##TODO LIST
 - [x] 특정 시각 넘었을 때 포션 효과
@@ -21,6 +23,6 @@
 - [ ] FACE를 가진 Block 구현
 
 ##Version Info
- - MCVersion : 1.10.2
- - Forge Current : 1.10.2-12.18.2.2116
- - JEI Current : 1.10.2_3.13.0.338
+ - MCVersion : 1.11
+ - Forge Current : 1.11-13.19.1.2195
+ - JEI Current : 4.1.1.207
