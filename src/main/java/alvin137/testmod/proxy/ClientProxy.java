@@ -1,12 +1,11 @@
-package com.alvin137.testmod.proxy;
+package alvin137.testmod.proxy;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import com.alvin137.testmod.Testmod;
-import com.alvin137.testmod.blocks.RegisterBlocks;
-import com.alvin137.testmod.items.RegisterItems;
-
+import alvin137.testmod.Testmod;
+import alvin137.testmod.blocks.RegisterBlocks;
+import alvin137.testmod.items.RegisterItems;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;

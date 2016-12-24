@@ -1,4 +1,4 @@
-package com.alvin137.testmod.items;
+package alvin137.testmod.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,18 +12,19 @@ import net.minecraft.world.World;
 
 public class TestItem extends GenericItems {
 	protected static String name = "testitem";
+
 	public TestItem() {
 		super(name);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos, EnumFacing hand, float facing, float hitX, float hitY)
-    {
-		if(!playerIn.isRemote) {
-		Block blockIn = playerIn.getBlockState(worldIn).getBlock();
-		System.out.println("BlockName : " + blockIn.getUnlocalizedName());
-		System.out.println("ModName : " + blockIn.getRegistryName().getResourceDomain());
+	public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos,
+			EnumFacing hand, float facing, float hitX, float hitY) {
+		if (!playerIn.isRemote) {
+			Block blockIn = playerIn.getBlockState(worldIn).getBlock();
+			System.out.println("BlockName : " + blockIn.getUnlocalizedName());
+			System.out.println("ModName : " + blockIn.getRegistryName().getResourceDomain());
 		}
-        return EnumActionResult.PASS;
-    }
+		return EnumActionResult.PASS;
+	}
 }

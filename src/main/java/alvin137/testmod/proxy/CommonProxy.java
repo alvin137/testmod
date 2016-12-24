@@ -1,8 +1,7 @@
-package com.alvin137.testmod.proxy;
+package alvin137.testmod.proxy;
 
-import com.alvin137.testmod.blocks.RegisterBlocks;
-import com.alvin137.testmod.items.RegisterItems;
-
+import alvin137.testmod.blocks.RegisterBlocks;
+import alvin137.testmod.items.RegisterItems;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -13,8 +12,16 @@ public class CommonProxy {
 		RegisterItems.registerItem();
 		RegisterBlocks.registerBlock();
 	}
-	public void init(FMLInitializationEvent e) {}
-	public void ontickpass(TickEvent.PlayerTickEvent e) {}
-	public void proxy() {}
-	public void onServerConnection(ClientConnectedToServerEvent e) {}
+
+	public void init(FMLInitializationEvent e) {
+	}
+
+	public void ontickpass(TickEvent.PlayerTickEvent e) {
+	}
+
+	public void proxy() {
+	}
+
+	public void onServerConnection(ClientConnectedToServerEvent e) {
+	}
 }
