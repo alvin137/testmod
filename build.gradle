@@ -83,12 +83,8 @@ repositories {
   }
 }
 
-minecraft {
-  useDepAts = true
-}
-
 dependencies {
-  deobfCompile "mezz.jei:jei_1.11:4.1.1.207"
+  runtime "mezz.jei:jei_1.11:4.1.1.207"
 }
 
 tasks.withType(JavaCompile) {
