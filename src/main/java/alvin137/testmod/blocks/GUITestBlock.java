@@ -147,6 +147,7 @@ public class GUITestBlock extends BlockContainer
             {
                 playerIn.displayGUIChest((TileEntityGUITestBlock)tileentity);
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
+                Testmod.logger.info("Activated");
             }
 
             return true;
@@ -302,4 +303,9 @@ public class GUITestBlock extends BlockContainer
     {
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
+    
+    @SideOnly(Side.CLIENT)
+	public void initModel() {
+
+	}
 }

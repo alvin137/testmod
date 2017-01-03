@@ -11,6 +11,7 @@ public class RegisterItems {
 	public static AttackTestItem atktestitem;
 	public static Bat bat;
 	public static TestItem testitem;
+	public static GUIItem guiitem;
 
 	public static void registerItem() {
 		initItems();
@@ -20,6 +21,7 @@ public class RegisterItems {
 		atktestitem = new AttackTestItem();
 		bat = new Bat();
 		testitem = new TestItem();
+		guiitem = new GUIItem();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -27,5 +29,6 @@ public class RegisterItems {
 		atktestitem.initModel();
 		bat.initModel();
 		testitem.initModel();
+		guiitem.initModel();
 	}
 }

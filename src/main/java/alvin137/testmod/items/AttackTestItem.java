@@ -29,9 +29,9 @@ public class AttackTestItem extends GenericItems {
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot, stack);
 
 		if (slot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(),
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
 					new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 4.0, 0));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(),
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(),
 					new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 1.7, 0));
 		}
 

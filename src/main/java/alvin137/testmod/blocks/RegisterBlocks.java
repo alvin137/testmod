@@ -14,11 +14,12 @@ public class RegisterBlocks {
 
 	public static void initBlocks() {
 		tblock = new TestBlock();
-		gtblock = new GUITestBlock(false);
+		gtblock = new GUITestBlock(true);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void initClient() {
 		tblock.initModel();
+		gtblock.initModel();
 	}
 }
